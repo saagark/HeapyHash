@@ -5,13 +5,10 @@ using namespace std;
 HashTable::HashTable(int hValue){
 	this->hashValue = hValue;
 	hashTable = new HashTableEntry*[hashValue];
-	for(int i =0; i<hashValue; i++)
-		hashTable[i] = NULL;
 }
 
 void HashTable::insertToTable(Node* nodeToAdd){
 	if(HashTable::lookup(nodeToAdd->value) != NULL){
-		cout << nodeToAdd->value;
 		cout << "error : item already exists" << endl;
 		return;
 	}

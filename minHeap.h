@@ -10,7 +10,7 @@ public:
 	MinHeap(int heapSize);
 
 	//inserts element and returns index of the value in the array
-	int insertToTable(int i);
+	int insertToTable(Node* nodeToAdd);
 
   	void delete(int index);
 
@@ -19,6 +19,7 @@ public:
   	void percolateDown(int index);
   private:
   	  Node** minHeap;
+  	  int emptyIndex;
 };
 
 #endif

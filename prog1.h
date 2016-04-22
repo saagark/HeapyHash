@@ -1,7 +1,8 @@
 #ifndef PROG1_H
 #define PROG1_H
 
-#include<"structures.h">
+#include "hashTable.h"
+#include "minHeap.h"
 
 class Prog1{
  public:
@@ -12,7 +13,7 @@ class Prog1{
   
   void insert(int i);
 
-  int lookup(int i);
+  void lookup(int i);
 
   void deleteMin();
 
@@ -24,8 +25,8 @@ class Prog1{
  private:
 
   int hashValue;
-  HashTableEntry** hashTable;
-  Node** minHeap;
+  HashTable hashTable;
+  MinHeap minHeap;
 };
 
 #endif
