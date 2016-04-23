@@ -22,5 +22,8 @@ test->insertToTable(add6);
 // test->insertToTable(add7);
 test->printTable();
 
+test->deleteFromTable(2);
+test->printTable();
+
 return 0;
 }

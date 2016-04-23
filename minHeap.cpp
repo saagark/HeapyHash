@@ -23,10 +23,13 @@ void MinHeap::deleteFromTable(int index){
 	minHeap[index] = minHeap[emptyIndex-1];
 	minHeap[emptyIndex-1] = NULL;
 	delete nodeToDelete;
-	percolateDown(index);
 	emptyIndex--;
+	percolateDown(index);
 }
 
+
+//do this with recursion since its easier
+//if index is less than parent index, it swaps them until heap property is maintained
 void MinHeap::percolateUp(int index){
 	if(index == 1)
 		return;
@@ -39,7 +42,25 @@ void MinHeap::percolateUp(int index){
 	}
 }
 
+//use recursion here too because its easier
 void MinHeap::percolateDown(int index){
+	int leftIndex = index*2;
+	int rightIndex = (index*2) + 1;
+	if(leftIndex >= emptyIndex)
+		return;
+	int indexOfMinimum = index; // assume for right now
+	if(minHeap[index]->value > minHeap[leftIndex]->value) // compare with left index
+		indexOfMinimum = leftIndex;
+	if((rightIndex < emptyIndex) && (minHeap[index]->value > minHeap[rightIndex]->value)) // compare with right index, also need to check bounds
+		indexOfMinimum = rightIndex;
+
+	//check if swapping is necessary
+	if(indexOfMinimum != index){
+		Node* temp = minHeap[index];
+		minHeap[index] = minHeap[indexOfMinimum];
+		minHeap[indexOfMinimum] = temp;
+		MinHeap::percolateDown(indexOfMinimum);
+	}
 
 }
 
