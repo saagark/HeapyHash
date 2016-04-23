@@ -1,29 +1,37 @@
 #include "prog1.h"
 #include <iostream>
-#include <ifstream>
 
-void insert(int i){
+Prog1::Prog1(){
+	hashTable = new HashTable(101);
+	minHeap = new MinHeap(101);
+}
+
+void Prog1::insert(int i){
 	//get hash index add to node
 	//add to heap, heap index will be added automatically
 	//add to hash table
-	int hashIndex = HashTable::h(i);
+	int hashIndex = hashTable->h(i);
 	Node* nodeToAdd = new Node(i, 0, hashIndex);
-	minHeap->insertToTable(nodeToAdd);
+	minHeap->insertToHeap(nodeToAdd);
 	hashTable->insertToTable(nodeToAdd);
 }
 
-void lookup(int i){
+void Prog1::lookup(int i){
 	// call lookup from hashTable
 }
 
-void deleteMin(){
-
+void Prog1::deleteMin(){
+	// get hash table index from node from heap
+	// delete from heap
+	// delete from hash table
 }
 
-void delete(int i){
-
+void Prog1::deleteFromStructures(int i){
+	// get index of heap from hash table
+	// delete from heap
+	// delete from hash table
 }
 
-void print(){
-
+void Prog1::print(){
+	// heapsort?
 }

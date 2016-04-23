@@ -1,6 +1,4 @@
 #include "hashTable.h"
-#include <iostream>
-using namespace std;
 
 HashTable::HashTable(int hValue){
 	this->hashValue = hValue;
@@ -9,12 +7,10 @@ HashTable::HashTable(int hValue){
 
 void HashTable::insertToTable(Node* nodeToAdd){
 	if(HashTable::lookup(nodeToAdd->value) != NULL){
-		cout << "error : item already exists" << endl;
 		return;
 	}
 	HashTableEntry* entryToAdd = new HashTableEntry(nodeToAdd);
 	int index = HashTable::h(nodeToAdd->value);
-	cout << "insert " << nodeToAdd->value << " @ " << index << endl;
 	if(hashTable[index]== NULL)
 		hashTable[index] = entryToAdd;
 	else{
@@ -35,7 +31,6 @@ Node* HashTable::lookup(int i){
 
 int HashTable::deleteFromTable(int i){
 	if(HashTable::lookup(i)==NULL){
-		cout << "error: item not present" << endl;
 		return -1;
 	}
 	else{
@@ -46,7 +41,6 @@ int HashTable::deleteFromTable(int i){
 				HashTableEntry* temp = entryToCheck->next->next;
 				delete entryToCheck->next;
 				entryToCheck->next = temp;
-				cout << "delete" << index << endl;
 				return heapIndex;
 			}
 		}

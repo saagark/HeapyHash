@@ -7,6 +7,8 @@
 class Prog1{
  public:
 
+  Prog1();
+
   int h(int i){
     return i%hashValue;
   }
@@ -17,16 +19,15 @@ class Prog1{
 
   void deleteMin();
 
-  void delete(int i);
+  void deleteFromStructures(int i);
 
   void print();
-
 
  private:
 
   int hashValue;
-  HashTable hashTable;
-  MinHeap minHeap;
+  HashTable* hashTable;
+  MinHeap* minHeap;
 };
 
 #endif
