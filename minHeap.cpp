@@ -1,5 +1,5 @@
 #include "minHeap.h"
-
+#include <iostream>
 
 
 MinHeap::MinHeap(int heapSize){
@@ -12,12 +12,13 @@ int MinHeap::insertToTable(Node* nodeToAdd){
 	minHeap[emptyIndex] = nodeToAdd;
 	percolateUp(emptyIndex);
 	emptyIndex++;
+	return emptyIndex-1;
 }
 
 //delete element
 //replace deleted element with last element
 //percolate down
-void MinHeap::delete(int index){
+void MinHeap::deleteFromTable(int index){
 	Node* nodeToDelete = minHeap[index];
 	minHeap[index] = minHeap[emptyIndex-1];
 	minHeap[emptyIndex-1] = NULL;
@@ -27,9 +28,24 @@ void MinHeap::delete(int index){
 }
 
 void MinHeap::percolateUp(int index){
-
+	if(index == 1)
+		return;
+	int parentIndex = index/2;
+	if(minHeap[index]->value < minHeap[parentIndex]->value){
+		Node* temp = minHeap[index];
+		minHeap[index] = minHeap[parentIndex];
+		minHeap[parentIndex] = temp;
+		MinHeap::percolateUp(parentIndex);
+	}
 }
 
 void MinHeap::percolateDown(int index){
 
+}
+
+void MinHeap::printTable(){
+	for(int i = 1; i < emptyIndex; i++){
+		std::cout << minHeap[i]->value << "@" << i << ",  ";
+	}
+	std::cout << std::endl;
 }
