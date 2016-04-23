@@ -14,6 +14,10 @@ struct Node{
     int value;
     int heapIndex;
     int hashIndex;
+
+    void setHeapIndex(int index){
+      heapIndex = index;
+    }
   };
 
   struct HashTableEntry{

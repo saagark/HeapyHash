@@ -13,16 +13,16 @@ Node* add4 = new Node(15,0,0);
 Node* add5 = new Node(20,0,0);
 Node* add6 = new Node(4,0,0);
 Node* add7 = new Node(6,0,0);
-test->insertToTable(add);
-test->insertToTable(add2);
+test->insertToHeap(add);
+test->insertToHeap(add2);
 // test->insertToTable(add3);
-test->insertToTable(add4);
-test->insertToTable(add5);
-test->insertToTable(add6);
+test->insertToHeap(add4);
+test->insertToHeap(add5);
+test->insertToHeap(add6);
 // test->insertToTable(add7);
 test->printTable();
 
-test->deleteFromTable(2);
+test->deleteFromHeap(2);
 test->printTable();
 
 return 0;
