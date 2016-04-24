@@ -1,4 +1,6 @@
 #include "minHeap.h"
+#include <iostream>
+using namespace std;
 
 
 MinHeap::MinHeap(int heapSize){

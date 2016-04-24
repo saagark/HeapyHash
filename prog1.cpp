@@ -67,5 +67,19 @@ void Prog1::deleteFromStructures(int i){
 }
 
 void Prog1::print(){
-	// heapsort?
+	Node* min;
+	min = minHeap->getMin();
+	
+	if(min == NULL){
+		return;
+	}
+	
+	cout << min->value;
+	minHeap->deleteFromHeap(1);
+
+	for(min = minHeap->getMin();min!= NULL;min = minHeap->getMin()){
+		cout << " " << minHeap->getMin()->value;
+		minHeap->deleteFromHeap(1);
+	}
+	cout << endl;
 }

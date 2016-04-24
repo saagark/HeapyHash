@@ -12,16 +12,19 @@ public:
 	//inserts element and returns index of the value in the array
 	int insertToHeap(Node* nodeToAdd);
 
-  	void deleteFromHeap(int index);
+  void deleteFromHeap(int index);
 
-  	void percolateUp(int index);
+  void percolateUp(int index);
 
-  	void percolateDown(int index);
+  void percolateDown(int index);
 
-  	Node* getMin();
+  Node* getMin();
+
+  void printTable();
+
   private:
-  	  Node** minHeap;
-  	  int emptyIndex;
+  	Node** minHeap;
+  	int emptyIndex;
 };
 
 #endif

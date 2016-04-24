@@ -21,7 +21,7 @@ void executeFunction(string word, int param){
 }
 
 
-void doSomething(string instruction){
+void parseString(string instruction){
 	istringstream iss(instruction);
 
 	string word;
@@ -47,7 +47,7 @@ int main(){
 
 	for (int i = 0; i < numInstr; i++) {
 		getline(cin, line);
-        doSomething(line);
+        parseString(line);
     }
 
     return 0;
