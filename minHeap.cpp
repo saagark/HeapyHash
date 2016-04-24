@@ -76,3 +76,10 @@ void MinHeap::printTable(){
 	}
 	std::cout << std::endl;
 }
+
+Node* MinHeap::getMin(){
+	if (emptyIndex==1)
+		return NULL;
+	else
+		return minHeap[1];
+}

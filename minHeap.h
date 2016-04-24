@@ -19,6 +19,8 @@ public:
   	void percolateDown(int index);
 
   	void printTable();
+
+  	Node* getMin();
   private:
   	  Node** minHeap;
   	  int emptyIndex;

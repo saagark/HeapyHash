@@ -34,7 +34,8 @@ struct Node{
     }
 
     ~HashTableEntry(){
-    	delete entry;
+    	if(next == NULL)
+        delete next;
     }
   };
 

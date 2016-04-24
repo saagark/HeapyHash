@@ -35,16 +35,23 @@ int HashTable::deleteFromTable(int i){
 	}
 	else{
 		int index = HashTable::h(i);
-		for(HashTableEntry* entryToCheck = hashTable[index]; entryToCheck->next != NULL; entryToCheck = entryToCheck->next){
-			if(entryToCheck->next->entry->value == i){ // check if next in array is the item to delete
-				int heapIndex = entryToCheck->next->entry->heapIndex;
-				HashTableEntry* temp = entryToCheck->next->next;
-				delete entryToCheck->next;
-				entryToCheck->next = temp;
-				return heapIndex;
+		for(HashTableEntry* entryToCheck = hashTable[index]; entryToCheck!= NULL; entryToCheck = entryToCheck->next){
+			if(entryToCheck->entry->value == i){ // check if entry in array is the item to delete
+				int heapIndex = entryToCheck->entry->heapIndex;
+				if(entryToCheck == hashTable[i]){
+					hashTable[i] = entryToCheck->next;
+					delete entryToCheck;
+					return heapIndex;
+				} else {
+					HashTableEntry* temp = entryToCheck->next;
+					delete entryToCheck;
+					entryToCheck = temp;
+					return heapIndex;
+				}
 			}
 		}
 
 	}
+
 	return -1;
 }
