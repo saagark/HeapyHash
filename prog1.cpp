@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-Prog1::Prog1(){
-	hashTable = new HashTable(101);
-	minHeap = new MinHeap(101);
+Prog1::Prog1(int size){
+	hashTable = new HashTable(size);
+	minHeap = new MinHeap(size);
 }
 
 void Prog1::insert(int i){
@@ -41,7 +41,7 @@ void Prog1::deleteMin(){
 		cout << "error: item not present" << endl;
 	} else {
 		int value = minNode->value;
-		int heapIndex = hashTable->deleteFromTable(value);
+		hashTable->deleteFromTable(value);
 		minHeap->deleteFromHeap(1);
 		cout << value << endl;
 	}

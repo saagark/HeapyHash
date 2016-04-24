@@ -1,5 +1,4 @@
 #include "minHeap.h"
-#include <iostream>
 
 
 MinHeap::MinHeap(int heapSize){
@@ -70,12 +69,6 @@ void MinHeap::percolateDown(int index){
 
 }
 
-void MinHeap::printTable(){
-	for(int i = 1; i < emptyIndex; i++){
-		std::cout << minHeap[i]->value << "@" << minHeap[i]->heapIndex << ",  ";
-	}
-	std::cout << std::endl;
-}
 
 Node* MinHeap::getMin(){
 	if (emptyIndex==1)

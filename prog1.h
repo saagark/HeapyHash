@@ -7,7 +7,7 @@
 class Prog1{
  public:
 
-  Prog1();
+  Prog1(int size);
 
   int h(int i){
     return i%hashValue;
