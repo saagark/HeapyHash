@@ -4,7 +4,7 @@ using namespace std;
 
 Prog1::Prog1(int size){
 	hashTable = new HashTable(size);
-	minHeap = new MinHeap(size);
+	minHeap = new MinHeap(1000);
 }
 
 void Prog1::insert(int i){

@@ -26,10 +26,9 @@ void parseString(string instruction){
 
 	string word;
 	int param;
-	while(iss >> word){
-		iss >> param;
-		executeFunction(word, param);
-	}
+	iss >> word;
+	iss >> param;
+	executeFunction(word, param);
 }
 
 int main(){
